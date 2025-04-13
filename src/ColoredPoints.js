@@ -27,7 +27,7 @@ let u_Size;
 let g_selectedColor=[1.0, 0.0, 0.0, 1.0]
 let g_selectedSize = 5;
 let g_selectedType=POINT;
-let segments = 20;
+let g_segments = 20;
 function addActionsForHtmlUI(){
   document.getElementById("green").onclick= function() {g_selectedColor = [0.0, 1.0, 0.0, 1.0];}
   document.getElementById("red").onclick= function() {g_selectedColor = [1.0, 0.0, 0.0, 1.0];}
@@ -35,7 +35,7 @@ function addActionsForHtmlUI(){
   document.getElementById("greenSlider").addEventListener('change', function() {g_selectedColor[1] = this.value / 100;});
   document.getElementById("blueSlider").addEventListener('change', function() {g_selectedColor[2] = this.value / 100;});
   document.getElementById("sizeSlider").addEventListener('change', function() {g_selectedSize = this.value;});
-  document.getElementById("segmentSlider").addEventListener('change', function() {segments = this.value;console.log(segments)});
+  document.getElementById("segmentSlider").addEventListener('change', function() {g_segments = this.value;});
   document.getElementById("clear").addEventListener('click', function() {g_shapes_list = []; renderAllShapes();})
   document.getElementById('point').addEventListener('click', function() {g_selectedType=POINT});
   document.getElementById('triangle').addEventListener('click', function() {g_selectedType=TRIANGLE})
@@ -432,7 +432,8 @@ function click(ev) {
     point = new Triangle();
   } else{
     point = new Circle();
-    point.segments = segments;
+    point.segments = g_segments;
+    console.log(g_segments);
   }
   point.position=[x,y];
   point.color = g_selectedColor.slice();
