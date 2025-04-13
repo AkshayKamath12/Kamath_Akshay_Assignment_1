@@ -35,7 +35,7 @@ function addActionsForHtmlUI(){
   document.getElementById("greenSlider").addEventListener('change', function() {g_selectedColor[1] = this.value / 100;});
   document.getElementById("blueSlider").addEventListener('change', function() {g_selectedColor[2] = this.value / 100;});
   document.getElementById("sizeSlider").addEventListener('change', function() {g_selectedSize = this.value;});
-  document.getElementById("segmentSlider").addEventListener('change', function() {segments = this.value;});
+  document.getElementById("segmentSlider").addEventListener('change', function() {segments = this.value;console.log(segments)});
   document.getElementById("clear").addEventListener('click', function() {g_shapes_list = []; renderAllShapes();})
   document.getElementById('point').addEventListener('click', function() {g_selectedType=POINT});
   document.getElementById('triangle').addEventListener('click', function() {g_selectedType=TRIANGLE})
